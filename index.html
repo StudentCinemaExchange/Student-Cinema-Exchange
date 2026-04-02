@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -17,22 +17,25 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #1f2233, #2c304d);
       color: #f0f0f0;
       line-height: 1.6;
-      background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* subtle pattern */
+
+      /* Gradient + subtle pattern */
+      background: linear-gradient(135deg, #1f2233, #2c304d);
+      background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");
       background-repeat: repeat;
     }
 
     .container {
       max-width: 960px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
 
     h1 {
       font-family: 'Merriweather', serif;
-      font-size: 56px;
+      font-size: 52px;
       font-weight: 700;
       letter-spacing: -1px;
       margin-bottom: 15px;
@@ -40,7 +43,7 @@
     }
 
     h2 {
-      font-size: 32px;
+      font-size: 30px;
       margin-bottom: 20px;
       font-weight: 600;
       color: #ffffff;
@@ -91,7 +94,7 @@
 
     /* Sections */
     .section {
-      margin-top: 50px; /* reduced space between sections */
+      margin-top: 40px; /* closer spacing */
       animation: fadeInUp 1s ease forwards;
     }
 
@@ -111,7 +114,7 @@
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(255,111,97,0.2); /* accent subtle shadow */
+      box-shadow: 0 10px 20px rgba(255,111,97,0.2);
     }
 
     /* Form */
