@@ -1,486 +1,283 @@
-diff --git a/index.html b/index.html
-index 5649d47bafdc49ddee9274f63d87baa86e741079..648097d152237c245839848fd7c8dac1c4a9084a 100644
---- a/index.html
-+++ b/index.html
-@@ -1,240 +1,283 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-   <meta charset="UTF-8">
--  <title>Student Cinema Exchange</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
--
--  <!-- Google Fonts -->
--  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
--
-+  <meta name="description" content="Student Cinema Exchange is a university platform where student films are shared across schools and student creators earn revenue from every out-of-institution screening.">
-+  <title>Student Cinema Exchange</title>
-   <style>
--    * {
--      margin: 0;
--      padding: 0;
--      box-sizing: border-box;
-+    :root {
-+      --bg: #f7f9fc;
-+      --text: #172033;
-+      --muted: #4a5874;
-+      --card: #ffffff;
-+      --border: #d8dfec;
-+      --brand: #0f5ae5;
-+      --brand-dark: #0d48b2;
-+      --ok: #0f766e;
-+      --max: 1120px;
-+      --anchor: 86px;
-     }
--
-+    * { box-sizing: border-box; margin: 0; padding: 0; }
-+    html { scroll-behavior: smooth; scroll-padding-top: var(--anchor); }
-     body {
--      font-family: 'Inter', sans-serif;
--      color: #000000; /* black text */
-+      font-family: Arial, Helvetica, sans-serif;
-+      background: var(--bg);
-+      color: var(--text);
-       line-height: 1.6;
--
--      /* Gradient + subtle pattern */
--      background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
--      background-image: 
--        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23000000' fill-opacity='0.05'/%3E%3C/svg%3E");
--      background-repeat: repeat;
-     }
- 
--    .container {
--      max-width: 960px;
--      margin: auto;
--      padding: 40px 20px;
--    }
-+    .wrap { width: min(var(--max), 92vw); margin: 0 auto; }
- 
--    h1 {
--      font-family: 'Merriweather', serif;
--      font-size: 52px;
--      font-weight: 700;
--      letter-spacing: -1px;
--      margin-bottom: 15px;
--      color: #000;
-+    header {
-+      position: sticky;
-+      top: 0;
-+      z-index: 20;
-+      background: #fff;
-+      border-bottom: 1px solid var(--border);
-     }
--
--    h2 {
--      font-family: 'Merriweather', serif;
--      font-size: 30px;
--      margin-bottom: 20px;
--      font-weight: 700;
--      color: #000;
-+    .nav {
-+      display: flex;
-+      justify-content: space-between;
-+      align-items: center;
-+      gap: 1rem;
-+      padding: 0.85rem 0;
-+      flex-wrap: wrap;
-     }
--
--    h3 {
--      font-family: 'Merriweather', serif;
--      font-size: 20px;
--      margin-bottom: 10px;
-+    .logo { font-size: 1.08rem; font-weight: 800; }
-+    .logo span { color: var(--brand); }
-+    .links { display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
-+    .links a { text-decoration: none; color: var(--muted); font-size: 0.95rem; }
-+    .links a:hover { color: var(--brand); }
-+
-+    .btn {
-+      border: 1px solid var(--brand);
-+      background: var(--brand);
-+      color: #fff !important;
-+      border-radius: 10px;
-+      padding: 0.6rem 0.95rem;
-       font-weight: 700;
--      color: #000;
--    }
--
--    p {
--      font-family: 'Inter', sans-serif;
--      font-size: 16px;
--      color: #000;
--    }
--
--    /* Hero Section */
--    .hero {
--      text-align: center;
--      padding: 60px 20px;
--      position: relative;
--      animation: fadeIn 1.2s ease-in-out;
--    }
--
--    .hero p {
--      max-width: 600px;
--      margin: 15px auto;
--      font-size: 18px;
--    }
--
--    .button {
--      display: inline-block;
--      margin-top: 25px;
--      padding: 14px 28px;
--      background-color: #ff6f61; /* accent color */
--      color: #fff;
-       text-decoration: none;
--      font-weight: 600;
--      border-radius: 8px;
--      border: 2px solid #ff6f61; /* outline */
--      transition: transform 0.2s ease, box-shadow 0.2s ease;
-+      display: inline-block;
-     }
-+    .btn:hover { background: var(--brand-dark); }
- 
--    .button:hover {
--      transform: translateY(-2px);
--      box-shadow: 0 10px 25px rgba(255,111,97,0.3);
-+    section { padding-top: 2.1rem; scroll-margin-top: var(--anchor); }
-+    .hero {
-+      padding: 3rem 0 2rem;
-+      display: grid;
-+      grid-template-columns: 1.25fr 0.85fr;
-+      gap: 1rem;
-+      align-items: start;
-     }
--
--    /* Sections */
--    .section {
--      margin-top: 40px; /* closer spacing */
--      animation: fadeInUp 1s ease forwards;
-+    h1 {
-+      font-size: clamp(1.9rem, 4.4vw, 3.1rem);
-+      line-height: 1.12;
-+      margin-bottom: 0.75rem;
-     }
--
--    .grid {
--      display: grid;
--      grid-template-columns: 1fr 1fr;
--      gap: 30px;
-+    h2 { font-size: clamp(1.35rem, 2.7vw, 2rem); margin-bottom: 0.6rem; }
-+    p.lead { color: var(--muted); margin-bottom: 1rem; max-width: 66ch; }
-+    .intro { color: var(--muted); margin-bottom: 1rem; }
-+
-+    .panel, .card {
-+      background: var(--card);
-+      border: 1px solid var(--border);
-+      border-radius: 14px;
-+      padding: 1rem;
-     }
- 
--    .card {
--      background: rgba(255,255,255,0.9); /* light background behind text */
--      padding: 25px;
--      border-radius: 12px;
--      border: 2px solid #000; /* outline */
--      color: #000;
--      transition: transform 0.2s ease, box-shadow 0.2s ease;
-+    .check { list-style: none; margin: 0.75rem 0 0.5rem; }
-+    .check li { margin: 0.4rem 0; color: var(--muted); }
-+    .check li::before {
-+      content: "✓";
-+      color: var(--ok);
-+      margin-right: 0.45rem;
-+      font-weight: 700;
-     }
- 
--    .card:hover {
--      transform: translateY(-4px);
--      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
--    }
-+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
-+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
- 
--    /* Form */
--    .form {
--      margin-top: 20px;
--      max-width: 400px;
--    }
-+    table { width: 100%; border-collapse: collapse; margin-top: 0.55rem; }
-+    th, td { border-bottom: 1px solid var(--border); text-align: left; padding: 0.55rem; }
-+    th { font-size: 0.85rem; text-transform: uppercase; color: #3b4b6b; }
- 
--    input {
-+    form { display: grid; gap: 0.7rem; }
-+    label { display: block; font-size: 0.9rem; font-weight: 700; color: #2d3d5e; }
-+    input, select, textarea {
-       width: 100%;
--      padding: 14px;
--      margin-top: 10px;
--      border-radius: 6px;
--      border: 2px solid #000; /* outline */
--      outline: none;
--      font-size: 16px;
-+      margin-top: 0.25rem;
-+      border: 1px solid var(--border);
-+      border-radius: 10px;
-+      padding: 0.65rem;
-+      font: inherit;
-       background: #fff;
--      color: #000;
--    }
--
--    button {
--      width: 100%;
--      padding: 14px;
--      margin-top: 10px;
--      border: 2px solid #ff6f61; /* outline */
--      border-radius: 6px;
--      background: #ff6f61;
--      color: #fff;
--      font-weight: 600;
--      cursor: pointer;
--      font-size: 16px;
--      transition: 0.2s;
-+      color: var(--text);
-     }
--
--    button:hover {
--      opacity: 0.9;
-+    textarea { min-height: 100px; resize: vertical; }
-+    .small { color: var(--muted); font-size: 0.85rem; }
-+
-+    footer {
-+      margin-top: 2.2rem;
-+      border-top: 1px solid var(--border);
-+      color: var(--muted);
-+      font-size: 0.9rem;
-+      padding: 1rem 0 2rem;
-     }
- 
--    /* Animations */
--    @keyframes fadeIn {
--      from {opacity: 0;}
--      to {opacity: 1;}
-+    @media (max-width: 930px) {
-+      :root { --anchor: 122px; }
-+      .hero, .grid-3, .grid-2 { grid-template-columns: 1fr; }
-     }
--
--    @keyframes fadeInUp {
--      from {opacity: 0; transform: translateY(20px);}
--      to {opacity: 1; transform: translateY(0);}
--    }
--
--    @media (max-width: 768px) {
--      h1 { font-size: 42px; }
--      .grid { grid-template-columns: 1fr; }
--    }
--
-   </style>
- </head>
- <body>
--
--  <!-- HERO -->
--  <div class="container hero">
--    <h1>Film Forward</h1>
--    <p>A curated network where universities share student films, enhance classrooms, and support young filmmakers</p>
--    <a href="#contact" class="button">Request Partnership</a>
--  </div>
--
--  <!-- HOW IT WORKS -->
--  <div class="container section">
--    <h2>How It Works</h2>
--    <div class="grid">
--      <div class="card">
--        <h3>Upload & Share</h3>
--        <p>Universities submit their strongest student films to a curated library. Each film gains long-term visibility beyond festivals and reaches classrooms nationwide.</p>
-+  <header>
-+    <div class="wrap nav">
-+      <div class="logo">Student Cinema <span>Exchange</span></div>
-+      <nav class="links" aria-label="Primary">
-+        <a href="#model">Model</a>
-+        <a href="#pricing">Pricing</a>
-+        <a href="#contact">Contact</a>
-+        <a class="btn" href="#contact">Book Pilot Call</a>
-+      </nav>
-+    </div>
-+  </header>
-+
-+  <main class="wrap">
-+    <section class="hero" id="top">
-+      <div>
-+        <h1>A national exchange where student films keep working long after festivals end.</h1>
-+        <p class="lead">Student Cinema Exchange is built for both faculty and students. Teachers discover short films for class discussion, analysis, and inspiration. Students watch peer-made work from other schools to learn techniques, spark creativity, and see what is possible across a national community.</p>
-+        <ul class="check">
-+          <li>$1 views for films under 90 seconds, $2 views for 90+ seconds.</li>
-+          <li>50% of each paid view goes to the student filmmaker.</li>
-+          <li>$25 monthly floor per institution.</li>
-+          <li>Institution-set caps and per-film limits to control spending.</li>
-+        </ul>
-+        <a class="btn" href="#contact">Request Department Access</a>
-       </div>
--      <div class="card">
--        <h3>View & Earn</h3>
--        <p>Departments access films for $2 per view, providing valuable classroom content while students earn 50% of all viewing revenue.</p>
-+      <aside class="panel">
-+        <h2 style="font-size:1.2rem;">Built for film programs, communication departments, and the students they serve.</h2>
-+        <ul class="check">
-+          <li>Schools upload top films with release and rights documents.</li>
-+          <li>Departments get educational screening rights for coursework.</li>
-+          <li>Students earn royalties as their films are used in class.</li>
-+          <li>Institutions keep full control over monthly spend limits.</li>
-+        </ul>
-+      </aside>
-+    </section>
-+
-+    <section id="model">
-+      <h2>How the exchange model works</h2>
-+      <p class="intro">The platform serves classroom teaching and student development at the same time: faculty gain curated peer films for lessons, and students gain a live library of work to study and learn from.</p>
-+      <div class="grid-3">
-+        <article class="card">
-+          <h3>1) Submit top films</h3>
-+          <p>Universities and festivals nominate standout student films with rights clearance and release documentation.</p>
-+        </article>
-+        <article class="card">
-+          <h3>2) Screen in class</h3>
-+          <p>Teachers and students watch other schools' films in classrooms and course contexts under educational use terms.</p>
-+        </article>
-+        <article class="card">
-+          <h3>3) Share view revenue</h3>
-+          <p>Every paid view is split 50/50, creating direct earnings for student filmmakers and a sustainable platform model.</p>
-+        </article>
-       </div>
--    </div>
--  </div>
--
--  <!-- WHY IT MATTERS -->
--  <div class="container section">
--    <h2>Why It Matters</h2>
--    <div class="card">
--      <p>Student films often disappear after festivals. The Student Cinema Exchange gives them a permanent home – allowing universities to access curated content while students gain recognition and income.</p>
--    </div>
--  </div>
--
--  <!-- FESTIVAL PARTNERS -->
--  <div class="container section">
--    <h2>Festival Partners</h2>
--    <div class="grid">
--      <div class="card">
--        <h3>Submit Films</h3>
--        <p>Provide your top 5–10 student films. We curate and showcase them to universities and schools across the country.</p>
-+    </section>
-+
-+    <section id="pricing">
-+      <h2>Pricing and budget controls</h2>
-+      <div class="grid-2">
-+        <article class="card">
-+          <h3>Per-view pricing</h3>
-+          <table aria-label="Per-view pricing table">
-+            <thead>
-+              <tr>
-+                <th>Runtime</th>
-+                <th>Costs </th>
-+                <th>Student earns</th>
-+              </tr>
-+            </thead>
-+            <tbody>
-+              <tr>
-+                <td>Under 90 seconds</td>
-+                <td>$1</td>
-+                <td>$0.50</td>
-+              </tr>
-+              <tr>
-+                <td>90 seconds and over</td>
-+                <td>$2</td>
-+                <td>$1.00</td>
-+              </tr>
-+            </tbody>
-+          </table>
-+        </article>
-+
-+        <article class="card">
-+          <h3>Billing guardrails</h3>
-+          <ul class="check">
-+            <li>Monthly floor: $25 minimum invoice per institution.</li>
-+            <li>Monthly ceiling: institution sets the cap (for example $100–$500).</li>
-+            <li>Daily per-film limit: department sets the daily view limit to prevent abuse.</li>
-+            <li>Hard lock: streaming pauses when the monthly cap is reached (unless a top-up pack is purchased).</li>
-+            <li>Free own-content access: institutions watch their own films at no cost.</li>
-+          </ul>
-+        </article>
-       </div>
--      <div class="card">
--        <h3>Extend Impact</h3>
--        <p>Your films become part of a national network — viewed in classrooms and generating revenue for the students who created them.</p>
-+    </section>
-+
-+    <section id="contact">
-+      <h2>Request a pilot call</h2>
-+      <p class="intro">This form sends a real email request using FormSubmit. Replace the recipient address if needed before launch.</p>
-+      <div class="grid-2">
-+        <article class="card">
-+          <form action="https://formsubmit.co/hello@studentcinemaexchange.org" method="POST">
-+            <input type="hidden" name="_subject" value="Pilot Request - Student Cinema Exchange">
-+            <input type="hidden" name="_captcha" value="false">
-+            <input type="hidden" name="_template" value="table">
-+
-+            <label for="name">Full name
-+              <input id="name" name="Full Name" type="text" required>
-+            </label>
-+
-+            <label for="email">University email
-+              <input id="email" name="University Email" type="email" required>
-+            </label>
-+
-+            <label for="org">Organization type
-+              <select id="org" name="Organization Type" required>
-+                <option value="">Select one</option>
-+                <option>Film Department</option>
-+                <option>Communication / Media Program</option>
-+                <option>University Film Festival</option>
-+              </select>
-+            </label>
-+
-+            <label for="message">Message
-+              <textarea id="message" name="Message" placeholder="Tell us about your goals and timeline."></textarea>
-+            </label>
-+
-+            <button class="btn" type="submit">Send Pilot Request</button>
-+            <p class="small">If you'd rather use your own inbox, email us directly at hello@studentcinemaexchange.org.</p>
-+          </form>
-+        </article>
-+
-+        <aside class="card">
-+          <h3>What you receive next</h3>
-+          <ul class="check">
-+            <li>University partnership agreement sample.</li>
-+            <li>Student distribution agreement and rights checklist.</li>
-+            <li>Pilot onboarding steps for your department or festival.</li>
-+          </ul>
-+        </aside>
-       </div>
--    </div>
--  </div>
--
--  <!-- CONTACT -->
--  <div class="container section" id="contact">
--    <h2>Request Partnership</h2>
--    <p>Enter your university email to learn how your department can join the network.</p>
--
--    <div class="form">
--      <form>
--        <input type="email" placeholder="department@email.edu" required>
--        <button type="submit">Request Info</button>
--      </form>
--    </div>
--  </div>
-+    </section>
-+  </main>
- 
-+  <footer>
-+    <div class="wrap">Student Cinema Exchange &middot; hello@studentcinemaexchange.org</div>
-+  </footer>
- </body>
- </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Cinema Exchange is a university platform where student films are shared across schools and student creators earn revenue from every classroom screening.">
+  <title>Student Cinema Exchange</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --text: #172033;
+      --muted: #4a5874;
+      --card: #ffffff;
+      --border: #d8dfec;
+      --brand: #0f5ae5;
+      --brand-dark: #0d48b2;
+      --ok: #0f766e;
+      --max: 1120px;
+      --anchor: 86px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--anchor); }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .wrap { width: min(var(--max), 92vw); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 1.08rem; font-weight: 800; }
+    .logo span { color: var(--brand); }
+    .links { display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
+    .links a { text-decoration: none; color: var(--muted); font-size: 0.95rem; }
+    .links a:hover { color: var(--brand); }
+
+    .btn {
+      border: 1px solid var(--brand);
+      background: var(--brand);
+      color: #fff !important;
+      border-radius: 10px;
+      padding: 0.6rem 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover { background: var(--brand-dark); }
+
+    section { padding-top: 2.1rem; scroll-margin-top: var(--anchor); }
+    .hero {
+      padding: 3rem 0 2rem;
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    h1 {
+      font-size: clamp(1.9rem, 4.4vw, 3.1rem);
+      line-height: 1.12;
+      margin-bottom: 0.75rem;
+    }
+    h2 { font-size: clamp(1.35rem, 2.7vw, 2rem); margin-bottom: 0.6rem; }
+    p.lead { color: var(--muted); margin-bottom: 1rem; max-width: 66ch; }
+    .intro { color: var(--muted); margin-bottom: 1rem; }
+
+    .panel, .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+
+    .check { list-style: none; margin: 0.75rem 0 0.5rem; }
+    .check li { margin: 0.4rem 0; color: var(--muted); }
+    .check li::before {
+      content: "✓";
+      color: var(--ok);
+      margin-right: 0.45rem;
+      font-weight: 700;
+    }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 0.55rem; }
+    th, td { border-bottom: 1px solid var(--border); text-align: left; padding: 0.55rem; }
+    th { font-size: 0.85rem; text-transform: uppercase; color: #3b4b6b; }
+
+    form { display: grid; gap: 0.7rem; }
+    label { display: block; font-size: 0.9rem; font-weight: 700; color: #2d3d5e; }
+    input, select, textarea {
+      width: 100%;
+      margin-top: 0.25rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.65rem;
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    .small { color: var(--muted); font-size: 0.85rem; }
+
+    footer {
+      margin-top: 2.2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 1rem 0 2rem;
+    }
+
+    @media (max-width: 930px) {
+      :root { --anchor: 122px; }
+      .hero, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="logo">Student Cinema <span>Exchange</span></div>
+      <nav class="links" aria-label="Primary">
+        <a href="#model">Model</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#contact">Book Pilot Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div>
+        <h1>A national exchange where student films keep working long after festivals end.</h1>
+        <p class="lead">Student Cinema Exchange is built for both faculty and students. Teachers discover short films for class discussion, analysis, and inspiration. Students watch peer-made work from other schools to learn techniques, spark creativity, and see what is possible across a national community.</p>
+        <ul class="check">
+          <li>$1 views for films under 90 seconds, $2 views for 90+ seconds.</li>
+          <li>50% of each paid view goes to the student filmmaker.</li>
+          <li>$25 monthly floor per institution.</li>
+          <li>Institution-set caps and per-film limits to control spending.</li>
+        </ul>
+        <a class="btn" href="#contact">Request Department Access</a>
+      </div>
+      <aside class="panel">
+        <h2 style="font-size:1.2rem;">Built for film programs, communication departments, and the students they serve.</h2>
+        <ul class="check">
+          <li>Schools upload top films with release and rights documents.</li>
+          <li>Departments get educational screening rights for coursework.</li>
+          <li>Students earn royalties as their films are used in class.</li>
+          <li>Institutions keep full control over monthly spend limits.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="model">
+      <h2>How the exchange model works</h2>
+      <p class="intro">The platform serves classroom teaching and student development at the same time: faculty gain curated peer films for lessons, and students gain a live library of work to study and learn from.</p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>1) Submit top films</h3>
+          <p>Universities and festivals nominate standout student films with rights clearance and release documentation.</p>
+        </article>
+        <article class="card">
+          <h3>2) Screen in class</h3>
+          <p>Teachers and students watch other schools' films in classrooms and course contexts under educational use terms.</p>
+        </article>
+        <article class="card">
+          <h3>3) Share view revenue</h3>
+          <p>Every paid view is split 50/50, creating direct earnings for student filmmakers and a sustainable platform model.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>Pricing and budget controls</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Per-view pricing</h3>
+          <table aria-label="Per-view pricing table">
+            <thead>
+              <tr>
+                <th>Runtime</th>
+                <th>University pays</th>
+                <th>Student earns</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Under 90 seconds</td>
+                <td>$1</td>
+                <td>$0.50</td>
+              </tr>
+              <tr>
+                <td>90 seconds and over</td>
+                <td>$2</td>
+                <td>$1.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card">
+          <h3>Billing guardrails</h3>
+          <ul class="check">
+            <li>Monthly floor: $25 minimum invoice per institution.</li>
+            <li>Monthly ceiling: institution sets the cap (for example $100–$500).</li>
+            <li>Daily per-film limit: department sets the daily view limit to prevent abuse.</li>
+            <li>Hard lock: streaming pauses when the monthly cap is reached (unless a top-up pack is purchased).</li>
+            <li>Free own-content access: institutions watch their own films at no cost.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Request a pilot call</h2>
+      <p class="intro">This form sends a real email request using FormSubmit. Replace the recipient address if needed before launch.</p>
+      <div class="grid-2">
+        <article class="card">
+          <form action="https://formsubmit.co/hello@studentcinemaexchange.org" method="POST">
+            <input type="hidden" name="_subject" value="Pilot Request - Student Cinema Exchange">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
+            <label for="name">Full name
+              <input id="name" name="Full Name" type="text" required>
+            </label>
+
+            <label for="email">University email
+              <input id="email" name="University Email" type="email" required>
+            </label>
+
+            <label for="org">Organization type
+              <select id="org" name="Organization Type" required>
+                <option value="">Select one</option>
+                <option>Film Department</option>
+                <option>Communication / Media Program</option>
+                <option>University Film Festival</option>
+              </select>
+            </label>
+
+            <label for="message">Message
+              <textarea id="message" name="Message" placeholder="Tell us about your goals and timeline."></textarea>
+            </label>
+
+            <button class="btn" type="submit">Send Pilot Request</button>
+            <p class="small">If you'd rather use your own inbox, email us directly at hello@studentcinemaexchange.org.</p>
+          </form>
+        </article>
+
+        <aside class="card">
+          <h3>What you receive next</h3>
+          <ul class="check">
+            <li>University partnership agreement sample.</li>
+            <li>Student distribution agreement and rights checklist.</li>
+            <li>Pilot onboarding steps for your department or festival.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Student Cinema Exchange &middot; hello@studentcinemaexchange.org</div>
+  </footer>
+</body>
+</html>
