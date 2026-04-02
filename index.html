@@ -4,93 +4,218 @@
   <meta charset="UTF-8">
   <title>Film Forward</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f0f0f;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1a1a1a, #0a0a0a);
       color: #ffffff;
       line-height: 1.6;
     }
+
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
+
     h1 {
-      font-size: 48px;
+      font-size: 64px;
+      font-weight: 600;
+      letter-spacing: -2px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 20px;
       margin-bottom: 10px;
     }
-    h2 {
-      margin-top: 60px;
-      font-size: 28px;
+
+    p {
+      color: #cfcfcf;
+      font-size: 16px;
     }
+
+    .hero {
+      text-align: center;
+      padding-top: 80px;
+      padding-bottom: 80px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 18px;
+    }
+
     .button {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #ffffff;
-      color: #000000;
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #ffffff, #dcdcdc);
+      color: #000;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+    }
+
     .section {
-      margin-top: 40px;
+      margin-top: 80px;
+      animation: fadeInUp 1s ease forwards;
     }
-    input, button {
-      padding: 12px;
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .form {
+      margin-top: 30px;
+      max-width: 400px;
+    }
+
+    input {
       width: 100%;
+      padding: 14px;
       margin-top: 10px;
-      border-radius: 5px;
+      border-radius: 6px;
       border: none;
+      outline: none;
     }
+
     button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
       background: #ffffff;
       color: #000;
-      font-weight: bold;
+      font-weight: 600;
       cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 42px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-
-  <h1>Film Forward</h1>
-  <p>A curated network where universities share student films, enhance classrooms, and generate revenue.</p>
-  <a href="#contact" class="button">Request Partnership</a>
-
-  <h2>How It Works</h2>
-  <div class="section">
-    <h3>Upload & Share</h3>
-    <p>Universities submit their strongest student films to a curated, centralized library.</p>
-
-    <h3>View & Earn</h3>
-    <p>Departments access films for $2 per view while students earn 50% of revenue.</p>
+  <!-- HERO -->
+  <div class="container hero">
+    <h1>Film Forward</h1>
+    <p>A curated network where universities share student films, enhance classrooms, and generate revenue.</p>
+    <a href="#contact" class="button">Request Partnership</a>
   </div>
 
-  <h2>Why It Matters</h2>
-  <p>Student films often disappear after festivals. Film Forward gives them a permanent home and real value.</p>
-
-  <h2>Festival Partners</h2>
-  <div class="section">
-    <h3>Submit Films</h3>
-    <p>Share your top student films to be featured nationally.</p>
-
-    <h3>Extend Impact</h3>
-    <p>Your films reach classrooms and generate revenue for students.</p>
+  <!-- HOW IT WORKS -->
+  <div class="container section">
+    <h2>How It Works</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Upload & Share</h3>
+        <p>Universities submit their strongest student films to a curated, centralized library. Each film gains long-term visibility beyond festivals and reaches classrooms nationwide.</p>
+      </div>
+      <div class="card">
+        <h3>View & Earn</h3>
+        <p>Departments access films for $2 per view, providing valuable classroom content while students earn 50% of all viewing revenue.</p>
+      </div>
+    </div>
   </div>
 
-  <h2 id="contact">Request Partnership</h2>
-  <p>Enter your university email to learn more.</p>
+  <!-- WHY IT MATTERS -->
+  <div class="container section">
+    <h2>Why It Matters</h2>
+    <p>Student films often disappear after festivals, despite their educational and creative value. Film Forward gives these works a permanent home — allowing universities to access curated content while students gain recognition and income.</p>
+  </div>
 
-  <form>
-    <input type="email" placeholder="department@email.edu" required>
-    <button type="submit">Request Info</button>
-  </form>
+  <!-- FESTIVAL PARTNERS -->
+  <div class="container section">
+    <h2>Festival Partners</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Submit Films</h3>
+        <p>Provide your top 5–10 student films. We curate and showcase them to universities across the country.</p>
+      </div>
+      <div class="card">
+        <h3>Extend Impact</h3>
+        <p>Your films become part of a national network — viewed in classrooms and generating revenue for the students who created them.</p>
+      </div>
+    </div>
+  </div>
 
-</div>
+  <!-- CONTACT -->
+  <div class="container section" id="contact">
+    <h2>Request Partnership</h2>
+    <p>Enter your university email to learn how your department can join the network.</p>
+
+    <div class="form">
+      <form>
+        <input type="email" placeholder="department@email.edu" required>
+        <button type="submit">Request Info</button>
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>
